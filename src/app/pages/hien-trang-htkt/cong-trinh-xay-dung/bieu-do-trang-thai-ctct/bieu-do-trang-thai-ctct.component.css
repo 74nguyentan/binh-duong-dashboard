@@ -1,0 +1,8 @@
+.chart-wrapper{
+    display: flex;
+    justify-content: center;
+    z-index: 999999 !important;
+}
+.chart-wrapper ngx-charts-pie-chart{
+    z-index: 999999 !important;
+}

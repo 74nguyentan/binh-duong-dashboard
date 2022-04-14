@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 top p-0">
+      <nb-card class="so-luong mb-0">
+        <nb-card-header>
+          <nb-select
+            class="mt-2"
+            [fullWidth]="true"
+            [multiple]="true"
+            (selectedChange)="service.changeNamSelected($event)"
+            *ngIf="lstYear"
+            [selected]="service.namSelected$ | async"
+            placeholder="Chọn năm"
+          >
+            <nb-option *ngFor="let item of lstYear" [value]="item">{{
+              item
+            }}</nb-option>
+          </nb-select>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-so-luong></ga-so-luong>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-5 top p-0">
+      <nb-card class="map mx-0 mb-0">
+        <nb-card-body>
+          <ga-map></ga-map>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <div class="col-sm-3 p-0">
+      <nb-card
+        class="dashboard-view-content mb-0"
+        style="min-height: 47.5vh !important"
+      >
+        <nb-card-header>
+          Chiều dài cống thoát nước đơn vị hành chính
+        </nb-card-header>
+        <nb-card-body>
+          <ga-btn-zoom
+            [input]="zoom_1"
+            (output)="zoom_1 = $event"
+          ></ga-btn-zoom>
+          <ga-so-luong-dvhc
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_1 }"
+          ></ga-so-luong-dvhc>
+          <ga-so-luong-dvhc></ga-so-luong-dvhc>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <div class="col-sm-4 p-0">
+      <nb-card class="dashboard-view-content">
+        <nb-card-header
+          >SL hố ga theo loại hố ga
+          <ga-btn-zoom
+            [input]="zoom_2"
+            (output)="zoom_2 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-ho-ga-loai
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_2 }"
+          ></ga-bieu-do-ho-ga-loai>
+          <ga-bieu-do-ho-ga-loai></ga-bieu-do-ho-ga-loai>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-4 p-0">
+      <nb-card class="dashboard-view-content mx-0">
+        <nb-card-header
+          >SL hố ga theo đường kính
+          <ga-btn-zoom
+          [input]="zoom_3"
+          (output)="zoom_3 = $event"
+        ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-ho-ga-duong-kinh
+          class="bieuDoFullScreen"
+          [ngClass]="{ bieuDo_block: zoom_3 }"
+          ></ga-bieu-do-ho-ga-duong-kinh>
+          <ga-bieu-do-ho-ga-duong-kinh></ga-bieu-do-ho-ga-duong-kinh>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-4 p-0">
+      <nb-card class="dashboard-view-content">
+        <nb-card-header
+          >SL hố ga theo đơn vị hành chính
+          <ga-btn-zoom
+          [input]="zoom_4"
+          (output)="zoom_4 = $event"
+        ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-ho-ga-dvhc
+          class="bieuDoFullScreen"
+          [ngClass]="{ bieuDo_block: zoom_4 }"
+          ></ga-bieu-do-ho-ga-dvhc>
+          <ga-bieu-do-ho-ga-dvhc></ga-bieu-do-ho-ga-dvhc>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

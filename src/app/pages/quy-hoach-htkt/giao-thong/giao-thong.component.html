@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="top row">
+    <div class="col-sm-3 p-0">
+      <nb-card class="so-luong mb-0">
+        <nb-card-header>
+          <nb-select
+            class="mt-2"
+            [fullWidth]="true"
+            [multiple]="true"
+            (selectedChange)="service.changeNamSelected($event)"
+            *ngIf="lstYear"
+            [selected]="service.namSelected$ | async"
+            placeholder="Chọn năm"
+          >
+            <nb-option *ngFor="let item of lstYear" [value]="item">{{
+              item
+            }}</nb-option>
+          </nb-select>
+        </nb-card-header>
+        <nb-card-body> <ga-so-luong></ga-so-luong></nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-9 p-0 top">
+      <nb-card class="map ml-0 mb-0">
+        <nb-card-body>
+          <ga-map></ga-map>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+  <div class="dashboard-content row">
+    <div class="col-sm-6 p-0">
+      <nb-card class="dashboard-view-content mr-0">
+        <nb-card-header
+          >Tổng diện tích theo đơn vị hành chính
+          <ga-btn-zoom
+          [input]="zoom_1"
+          (output)="zoom_1 = $event"
+        ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-dien-tich-dvhc
+          class="bieuDoFullScreen"
+          [ngClass]="{ bieuDo_block: zoom_1 }"
+          ></ga-bieu-do-dien-tich-dvhc>
+          <ga-bieu-do-dien-tich-dvhc></ga-bieu-do-dien-tich-dvhc>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-6 p-0">
+      <nb-card class="dashboard-view-content">
+        <nb-card-header
+          >Tổng chiều dài theo đơn vị hành chính
+          <ga-btn-zoom
+          [input]="zoom_2"
+          (output)="zoom_2 = $event"
+        ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+         <ga-bieu-do-chieu-dai-dvhc
+         class="bieuDoFullScreen"
+         [ngClass]="{ bieuDo_block: zoom_2 }"
+          ></ga-bieu-do-chieu-dai-dvhc>
+          <ga-bieu-do-chieu-dai-dvhc></ga-bieu-do-chieu-dai-dvhc>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

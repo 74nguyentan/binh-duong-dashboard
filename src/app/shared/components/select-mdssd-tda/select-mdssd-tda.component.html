@@ -1,0 +1,14 @@
+<input
+  #autoInput
+  nbInput
+  type="text"
+  (input)="onChange()"
+  placeholder="Đồ án"
+  [nbAutocomplete]="auto"
+  [fullWidth]="fullWidth"
+/>
+<nb-autocomplete #auto (selectedChange)="onSelectionChange($event)">
+<nb-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+  {{ option.tenDoAn }}
+</nb-option>
+</nb-autocomplete>

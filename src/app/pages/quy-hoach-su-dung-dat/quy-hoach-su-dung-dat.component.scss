@@ -1,0 +1,50 @@
+.container_div {
+  nb-card.form {
+    margin-right: 0;
+    height: 21%;
+    nb-select {
+      margin: 5px 0 !important;
+    }
+    nb-card-body {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
+
+  nb-card.mcsdd {
+    margin-right: 0;
+    height: 76.7%;
+    nb-card-body {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center;
+    }
+  }
+
+  .p-top {
+    padding-top: 80px;
+  }
+}
+
+.top {
+  display: flex;
+  &-left {
+    display: flex;
+    flex-direction: column;
+    .legend {
+      height: 200px;
+    }
+  }
+  .map {
+    flex: 1;
+    min-height: 50vh;
+  }
+}
+.lengend__map {
+  height: 90vh;
+  margin-left: 0;
+}
+nb-card-body {
+  padding: 8px 10px !important;
+}

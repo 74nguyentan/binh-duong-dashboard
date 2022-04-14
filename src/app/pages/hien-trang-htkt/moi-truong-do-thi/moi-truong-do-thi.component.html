@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 top p-0">
+      <nb-card class="so-luong mr-0">
+        <nb-card-body>
+          <ga-so-luong></ga-so-luong>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-9 p-0 top">
+      <nb-card class="map">
+        <nb-card-body>
+          <ga-map></ga-map>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 p-0">
+      <nb-card class="dashboard-view-content p-0 mt-0 mr-0">
+        <nb-card-header>
+          Số lượng nghĩa trang theo đơn vị hành chính
+          <ga-btn-zoom
+            [input]="zoom_1"
+            (output)="zoom_1 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body class="px-2 pt-2 pb-0">
+          <ga-so-luong-dvhc
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_1 }"
+          ></ga-so-luong-dvhc>
+          <ga-so-luong-dvhc></ga-so-luong-dvhc>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-6 p-0">
+      <nb-card class="dashboard-view-content p-0 mt-0">
+        <nb-card-header
+          >Số lượng nghĩa trang theo loại
+          <ga-btn-zoom
+            [input]="zoom_2"
+            (output)="zoom_2 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body class="px-2 pt-2 pb-0">
+          <ga-so-luong-lnt
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_2 }"
+          ></ga-so-luong-lnt>
+          <ga-so-luong-lnt></ga-so-luong-lnt>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

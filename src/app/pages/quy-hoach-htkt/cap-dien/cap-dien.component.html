@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 p-0">
+      <nb-card class="so-luong mr-0">
+        <nb-card-header>
+          <nb-select
+            class="mt-2"
+            [fullWidth]="true"
+            [multiple]="true"
+            (selectedChange)="service.changeNamSelected($event)"
+            *ngIf="lstYear"
+            [selected]="service.namSelected$ | async"
+            placeholder="Chọn năm"
+          >
+            <nb-option *ngFor="let item of lstYear" [value]="item">{{
+              item
+            }}</nb-option>
+          </nb-select>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-so-luong></ga-so-luong>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-9 top p-0">
+      <nb-card class="map">
+        <nb-card-body>
+          <ga-map></ga-map>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <div class="dashboard-content row">
+    <div class="col-sm-6 p-0">
+      <nb-card class="dashboard-view-content tram-bien-ap my-0 mr-0">
+        <nb-card-header
+          >Công suất trạm biến áp
+          <ga-btn-zoom
+            [input]="zoom_1"
+            (output)="zoom_1 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-cong-suat-tba
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_1 }"
+          ></ga-cong-suat-tba>
+          <ga-cong-suat-tba></ga-cong-suat-tba>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-6 p-0">
+      <nb-card class="dashboard-view-content my-0">
+        <nb-card-header>
+          Chiều dài tuyến dây theo đơn vị hành chính
+          <ga-btn-zoom
+            [input]="zoom_2"
+            (output)="zoom_2 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-chieu-dai-tuyen-day-dvhc
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_2 }"
+          ></ga-chieu-dai-tuyen-day-dvhc>
+          <ga-chieu-dai-tuyen-day-dvhc></ga-chieu-dai-tuyen-day-dvhc>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-12 p-0">
+      <nb-card class="dashboard-view-content">
+        <nb-card-header>
+          Số lượng Hệ thống cấp điện trung hạ thế theo đơn vị hành chính
+          <ga-btn-zoom
+            [input]="zoom_3"
+            (output)="zoom_3 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-so-luong-dvhc
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_3 }"
+          ></ga-so-luong-dvhc>
+          <ga-so-luong-dvhc></ga-so-luong-dvhc>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

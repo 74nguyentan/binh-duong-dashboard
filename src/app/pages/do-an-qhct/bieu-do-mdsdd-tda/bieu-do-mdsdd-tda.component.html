@@ -1,0 +1,24 @@
+<div class="chart mt-3">
+  <ga-select-mdssd-tda
+    [fullWidth]="true"
+    (valueChange)="getDataChart($event)"
+  ></ga-select-mdssd-tda>
+  <div *ngIf="!value" class="do-an">Vui lòng chọn đồ án</div>
+ <div class=" bieuDo">
+  <ngx-charts-pie-chart
+  [view]="view"
+  chart-zero-value
+  *ngIf="value"
+  [scheme]="schemeChart"
+  [results]="value.datas"
+  [labelFormatting]="labelFormating"
+  [legend]="false"
+  legendTitle="Chú giải"
+  [legendPosition]="'rigth'"
+>
+  <ng-template #tooltipTemplate let-model="model">
+    <div>{{ model.name }}</div>
+  </ng-template>
+</ngx-charts-pie-chart>
+ </div>
+</div>

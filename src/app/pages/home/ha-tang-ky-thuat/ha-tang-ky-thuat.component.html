@@ -1,0 +1,73 @@
+<nb-flip-card>
+    <nb-card-front>
+      <nb-card>
+        <nb-card-header>Hạ tầng kỹ thuật
+            <nb-select [(ngModel)]="datasetSelected" placeholder="Chọn lĩnh vực">
+                <nb-option *ngFor="let ds of datasets" [value]="ds">{{ds.datasetName}}</nb-option>
+            </nb-select>
+        </nb-card-header>
+        <nb-card-body>
+            <ngx-charts-bar-vertical [view]="view" [results]="chartValues" [xAxis]="true" [yAxis]="true" [showXAxisLabel]="true"
+            [showYAxisLabel]="true" [yAxisLabel]="yAxisLabel" xAxisLabel="Đối tượng"
+            [xAxisTickFormatting]="xAxisTickFormatting">
+        </ngx-charts-bar-vertical>
+        </nb-card-body>
+      </nb-card>
+    </nb-card-front>
+    <nb-card-back>
+      <nb-card>
+        <nb-card-header>Hạ tầng kỹ thuật
+            <nb-select [(ngModel)]="datasetSelected" placeholder="Chọn lĩnh vực">
+                <nb-option *ngFor="let ds of datasets" [value]="ds">{{ds.datasetName}}</nb-option>
+            </nb-select>
+        </nb-card-header>
+        <nb-card-body>
+            <table class="table" border="1px">
+                <tr>
+                    <th>Tên đối tượng</th>
+                    <th>Số lượng</th>
+                    <th>Đơn vị</th>
+                </tr>
+                <ng-container *ngIf="values.length then hasData else noData"></ng-container>
+                <ng-template #hasData>
+                    <tr>
+                        <td><strong>Điểm</strong></td>
+                        <td class="right">{{(values | tableGroup :'esriGeometryPoint': true) | number}}</td>
+                        <td></td>
+                    </tr>
+                    <tr *ngFor="let item of values | tableGroup :'esriGeometryPoint'">
+                        <td>{{item.layerName}}</td>
+                        <td class="right">{{item.soLuong | number}}</td>
+                        <td>{{item.donVi}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Đường</strong></td>
+                        <td class="right">{{(values | tableGroup :'esriGeometryPolyline': true) | number}}</td>
+                        <td>m</td>
+                    </tr>
+                    <tr *ngFor="let item of values | tableGroup :'esriGeometryPolyline'">
+                        <td>{{item.layerName}}</td>
+                        <td class="right">{{item.soLuong | number}}</td>
+                        <td>{{item.donVi}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vùng</strong></td>
+                        <td class="right">{{(values | tableGroup :'esriGeometryPolygon': true) | number}}</td>
+                        <td>m<sup>2</sup></td>
+                    </tr>
+                    <tr *ngFor="let item of values | tableGroup :'esriGeometryPolygon'">
+                        <td>{{item.layerName}}</td>
+                        <td class="right">{{item.soLuong | number}}</td>
+                        <td>{{item.donVi}}</td>
+                    </tr>
+                </ng-template>
+                <ng-template #noData>
+                    <tr>
+                        <td colspan="3"><i>Không có dữ liệu</i></td>
+                    </tr>
+                </ng-template>
+            </table>
+        </nb-card-body>
+      </nb-card>
+    </nb-card-back>
+  </nb-flip-card>

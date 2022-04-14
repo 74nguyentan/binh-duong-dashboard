@@ -1,0 +1,18 @@
+<div class="chart-wrapper">
+  <ngx-charts-bar-vertical
+    *ngIf="value"
+    [scheme]="schemeChart"
+    [results]="value.datas"
+    [xAxis]="true"
+    [yAxis]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    yAxisLabel="Số lượng"
+    xAxisLabel="Đơn vị hành chính"
+  >
+    <ng-template #tooltipTemplate let-model="model">
+      <div>{{model.name}}</div>
+      {{ model.value | number }}
+    </ng-template>
+  </ngx-charts-bar-vertical>
+</div>

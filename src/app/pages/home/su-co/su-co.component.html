@@ -1,0 +1,13 @@
+<div class="row" [nbSpinner]="isLoading">
+    <div class="col-md-12">
+        <ngx-charts-bar-vertical-stacked *ngIf="value" [view]="view" [scheme]="colorScheme" [legend]="true"
+            [showXAxisLabel]="true" [xAxis]="true" [yAxis]="true" [showYAxisLabel]="true" legendTitle="Chú giải"
+            [results]="value.datas" [xAxisTickFormatting]="xAxisTickFormatting" [yAxisLabel]="'Số lượng'"
+            [xAxisLabel]="'Lĩnh vực'">
+            <ng-template #tooltipTemplate let-model="model">
+                <div> {{model.title}}</div>
+                <div> {{model.value}}</div>
+            </ng-template>
+        </ngx-charts-bar-vertical-stacked>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="chart-wrapper">
+
+  <ngx-charts-bar-vertical-2d *ngIf="value && !checkLengthChart()" class="quy-hoach-sdd" [results]="value.datas"
+    [scheme]="schemeChart" [xAxis]="true" [yAxis]="true" [legend]="false" legendTitle="Chú giải" [showXAxisLabel]="true"
+    [showYAxisLabel]="true" yAxisLabel="Diện tích (ha)" xAxisLabel="Đơn vị hành chính" [showDataLabel]="false"
+    [barPadding]="0">
+    <ng-template #tooltipTemplate let-model="model">
+      <div>{{model.name}}</div>
+      {{ model.value | number }}
+    </ng-template>
+  </ngx-charts-bar-vertical-2d>
+</div>

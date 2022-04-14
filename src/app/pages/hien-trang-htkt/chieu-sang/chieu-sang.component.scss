@@ -1,0 +1,21 @@
+:host {
+  display: flex !important;
+  flex-direction: column;
+}
+nb-card-body {
+  padding: 10px 12px !important;
+}
+.top {
+  display: flex;
+  .so-luong {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+  .map {
+    flex: 1;
+    min-width: 50vh;
+    min-height: 50vh;
+  }
+}
+

@@ -1,0 +1,15 @@
+<div class="row" [nbSpinner]="isLoading">
+    <div class="col-md-12">
+        <ngx-charts-bar-horizontal 
+        *ngIf="value"
+        [view]="view"
+        [results]="value.datas" [xAxis]="true" [yAxis]="true" [showXAxisLabel]="true"
+            [showYAxisLabel]="true" xAxisLabel="Số lượng" yAxisLabel="Phân loại dự án" [yAxisTickFormatting]="yAxisTickFormatting">
+            <ng-template #tooltipTemplate let-model="model">
+               <div> {{yAxisTickFormatting(model.label)}}
+               </div>
+                {{model.value}}
+              </ng-template>
+        </ngx-charts-bar-horizontal>
+    </div>
+</div>

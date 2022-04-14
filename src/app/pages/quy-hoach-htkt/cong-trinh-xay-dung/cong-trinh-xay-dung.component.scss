@@ -1,0 +1,33 @@
+:host {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  &-left {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    .legend {
+      height: 220px;
+    }
+  }
+  .so-luong {
+    nb-card-header {
+        display: flex;
+        justify-content: center;
+        nb-select {
+          width: 150px;
+        }
+    }
+  }
+  .map {
+    flex: 1;
+    min-width: 50vh;
+    min-height: 50vh;
+  }
+}
+.dieu-chinh {
+  max-height: 500px;
+}

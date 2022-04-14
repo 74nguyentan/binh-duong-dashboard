@@ -1,0 +1,153 @@
+<div class="container-fluid">
+  <div class="row container_div">
+    <div class="col-sm-4 mr-0 p-0">
+      <nb-card class="form px-1">
+        <nb-card-body>
+          <nb-select
+            class="mt-3"
+            [fullWidth]="true"
+            [multiple]="true"
+            (selectedChange)="service.changeQuanHuyenSelected($event)"
+            *ngIf="lstQuanHuyen"
+            [selected]="service.quanHuyenSelected$ | async"
+            placeholder="Quận/huyện/tp"
+          >
+            <nb-option
+              *ngFor="let item of lstQuanHuyen"
+              [value]="item.maQuanHuyen"
+              >{{ item.tenQuanHuyen }}</nb-option
+            >
+          </nb-select>
+
+          <nb-select
+            class="mt-3"
+            [fullWidth]="true"
+            (selectedChange)="service.changeloaiQuyHoachSelected($event)"
+            *ngIf="lstLoaiQuyHoach"
+            [selected]="service.loaiQuyHoachSelected$ | async"
+            placeholder="Loại quy hoạch"
+          >
+            <nb-option
+              *ngFor="let item of lstLoaiQuyHoach"
+              [value]="item.maLQH"
+              >{{ item.tenLQH }}</nb-option
+            >
+          </nb-select>
+          <nb-select
+            class="mt-3"
+            [fullWidth]="true"
+            [multiple]="true"
+            (selectedChange)="service.changeMDSDDSelected($event)"
+            *ngIf="lstMucDichSuDungDat"
+            [selected]="service.mdSDDSelected$ | async"
+            placeholder="Mục đích sử dụng đất"
+          >
+            <nb-option
+              *ngFor="let item of lstMucDichSuDungDat"
+              [value]="item.maDanhMuc"
+              >{{ item.tenDanhMuc }}</nb-option
+            >
+          </nb-select>
+        </nb-card-body>
+      </nb-card>
+
+      <nb-card class="mcsdd dashboard-view-content mb-0">
+        <nb-card-header> Biểu đồ mục đích sử dụng đất </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-muc-dich-sdd></ga-bieu-do-muc-dich-sdd>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <div class="col-sm-8 mr-0 p-0">
+      <nb-card class="dashboard-view-content mb-0">
+        <nb-card-header>
+          Biểu đồ theo đơn vị hành chính
+          <ga-btn-zoom
+            [input]="zoom_1"
+            (output)="zoom_1 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-dvhc
+            [ngClass]="{ 'bieuDoFullScreen2': zoom_1 }"
+          ></ga-bieu-do-dvhc>
+        </nb-card-body>
+      </nb-card>
+      <nb-card class="dashboard-view-content bieuDoDuong mb-0">
+        <nb-card-header>
+          Biểu đồ mục đích sử dụng đất quy hoạch chi tiết qua các năm
+          <ga-btn-zoom
+            [input]="zoom_2"
+            (output)="zoom_2 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-sdd-qhct-nam
+          class="bieuDoFullScreen p-top"
+          [ngClass]="{'bieuDo_block': zoom_2}"
+          ></ga-bieu-do-sdd-qhct-nam>
+          <ga-bieu-do-sdd-qhct-nam></ga-bieu-do-sdd-qhct-nam>
+          <!-- <ga-bieu-do-sdd-qhct-nam
+            [ngClass]="{ 'bieuDoFullScreen2': zoom_2 }"
+          ></ga-bieu-do-sdd-qhct-nam> -->
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="top col-sm-9 ml-0 p-0">
+      <nb-card class="map">
+        <nb-card-body>
+          <ga-map></ga-map>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-3 mr-0 p-0">
+      <nb-card class="lengend__map">
+        <nb-card-header> Chú giải</nb-card-header>
+        <nb-card-body>
+          <ga-chu-giai></ga-chu-giai>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+<div class="col-sm-8 mr-0 p-0">
+  <nb-card class="dashboard-view-content mb-0">
+    <nb-card-header>
+      Biểu đồ theo đơn vị hành chính
+      <label class="zoom_btn" for="zoom_1"
+        ><i class="fas fa-expand-arrows-alt"></i
+      ></label>
+    </nb-card-header>
+    <nb-card-body>
+      <input type="checkbox" id="zoom_1" hidden  />
+      <label class="close_btn" for="zoom_1"
+        ><i class="fas fa-times"></i
+      ></label>
+      <ga-bieu-do-dvhc id="ga-bieu-do-dvhc" class="bieuDoFullScreen"></ga-bieu-do-dvhc>
+      <ga-bieu-do-dvhc></ga-bieu-do-dvhc>
+    </nb-card-body>
+  </nb-card>
+  <nb-card class="dashboard-view-content bieuDoDuong mb-0">
+    <nb-card-header>
+      Biểu đồ mục đích sử dụng đất quy hoạch chi tiết qua các năm
+      <label class="zoom_btn" for="zoom_2"
+        ><i class="fas fa-expand-arrows-alt"></i
+      ></label>
+    </nb-card-header>
+    <nb-card-body>
+      <input type="checkbox" id="zoom_2" hidden/>
+      <label class="close_btn" for="zoom_2"
+        ><i class="fas fa-times"></i
+      ></label>
+      <ga-bieu-do-sdd-qhct-nam id="ga-bieu-do-sdd-qhct-nam" class="bieuDoFullScreen"></ga-bieu-do-sdd-qhct-nam>
+      <ga-bieu-do-sdd-qhct-nam></ga-bieu-do-sdd-qhct-nam>
+    </nb-card-body>
+  </nb-card>
+</div> -->

@@ -1,0 +1,101 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2 top p-0">
+      <nb-card class="so-luong mr-0">
+        <nb-card-header>
+          <nb-select
+            class="mt-2"
+            [fullWidth]="true"
+            [multiple]="true"
+            (selectedChange)="service.changeNamSelected($event)"
+            *ngIf="lstYear"
+            [selected]="service.namSelected$ | async"
+            placeholder="Chọn năm"
+          >
+            <nb-option *ngFor="let item of lstYear" [value]="item">{{
+              item
+            }}</nb-option>
+          </nb-select>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-so-luong></ga-so-luong>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-7 top p-0">
+      <div class="container-fluid" style="height: 100%">
+        <div class="row">
+          <nb-card class="map mb-0">
+            <nb-card-body>
+              <ga-map></ga-map>
+            </nb-card-body>
+          </nb-card>
+        </div>
+        <div class="row">
+          <div class="p-0 col-sm-6">
+            <nb-card class="dashboard-view-content mr-0">
+              <nb-card-header
+                >Tổng chiều dài tuyến dây truyền theo ĐVHC
+                <ga-btn-zoom
+                  [input]="zoom_1"
+                  (output)="zoom_1 = $event"
+                ></ga-btn-zoom>
+              </nb-card-header>
+              <nb-card-body>
+                <ga-bieu-do-chieu-dai-tctd-dvhc
+                  class="bieuDoFullScreen"
+                  [ngClass]="{ bieuDo_block: zoom_1 }"
+                ></ga-bieu-do-chieu-dai-tctd-dvhc>
+                <ga-bieu-do-chieu-dai-tctd-dvhc></ga-bieu-do-chieu-dai-tctd-dvhc>
+              </nb-card-body>
+            </nb-card>
+          </div>
+          <div class="p-0 col-sm-6">
+            <nb-card class="dashboard-view-content">
+              <nb-card-header
+                >SL trạm viễn thông theo đơn vị hành chính
+                <ga-btn-zoom
+                  [input]="zoom_2"
+                  (output)="zoom_2 = $event"
+                ></ga-btn-zoom>
+              </nb-card-header>
+              <nb-card-body>
+                <ga-bieu-do-tramvt-dvhc
+                  class="bieuDoFullScreen"
+                  [ngClass]="{ bieuDo_block: zoom_2 }"
+                ></ga-bieu-do-tramvt-dvhc>
+                <ga-bieu-do-tramvt-dvhc></ga-bieu-do-tramvt-dvhc>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 p-0">
+      <nb-card
+        class="
+          dashboard-view-content dashboard-view-content__map--sltvt
+          ml-0
+          sl-vienThong
+        "
+        style="height: 573px"
+      >
+        <nb-card-header
+          >SL trạm viễn thông theo đơn vị quản lý
+          <ga-btn-zoom
+            [input]="zoom_3"
+            (output)="zoom_3 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-tramvt-dvql
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_3 }"
+          ></ga-bieu-do-tramvt-dvql>
+          <ga-bieu-do-tramvt-dvql></ga-bieu-do-tramvt-dvql>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

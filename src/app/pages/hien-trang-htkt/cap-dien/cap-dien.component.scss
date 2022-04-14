@@ -1,0 +1,35 @@
+
+.container-fluid {
+  .so-luong {
+    nb-card-body {
+      display: flex !important;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+    }
+  }
+ 
+  .top {
+    display: flex;
+    &-left {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      .legend {
+        height: 220px;
+      }
+    }
+
+    .map {
+      flex: 1;
+      min-width: 50vh;
+      min-height: 50vh;
+     
+    }
+  }
+  nb-card-body {
+    padding: 10px 12px !important;
+  }
+
+}

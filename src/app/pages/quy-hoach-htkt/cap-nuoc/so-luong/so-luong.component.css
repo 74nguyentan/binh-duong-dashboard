@@ -1,0 +1,23 @@
+.count {
+  font-size: 10vh;
+  word-wrap: break-word;
+  font-weight: bold;
+  color: #1b9cfc;
+  margin: 16px 0 12px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 16px 0 16px;
+  letter-spacing: 1px;
+}
+
+.wrapper {
+  text-align: center;
+  height: auto;
+}
+
+.wr-hr{
+  border-bottom: 1px solid #151A30;
+}

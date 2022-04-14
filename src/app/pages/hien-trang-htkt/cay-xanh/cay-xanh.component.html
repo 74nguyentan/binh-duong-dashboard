@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 top p-0">
+      <nb-card class="map mr-0">
+        <nb-card-body>
+          <ga-map></ga-map>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-4 p-0">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 top p-0">
+            <nb-card class="so-luong">
+              <nb-card-body>
+                <ga-so-luong></ga-so-luong>
+              </nb-card-body>
+            </nb-card>
+          </div>
+          <div class="col-sm-12 p-0">
+            <nb-card
+              class="
+                dashboard-view-content dashboard-view-content__map--cdtda
+                mt-0
+              "
+            >
+              <nb-card-header
+                >Số lượng cây xanh theo đơn vị hành chính
+                <ga-btn-zoom
+                  [input]="zoom_1"
+                  (output)="zoom_1 = $event"
+                ></ga-btn-zoom>
+              </nb-card-header>
+              <nb-card-body>
+                <ga-so-luong-dvhc
+                  class="bieuDoFullScreen"
+                  [ngClass]="{ bieuDo_block: zoom_1 }"
+                ></ga-so-luong-dvhc>
+                <ga-so-luong-dvhc></ga-so-luong-dvhc>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

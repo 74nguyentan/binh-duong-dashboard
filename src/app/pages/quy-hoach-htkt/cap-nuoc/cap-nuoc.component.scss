@@ -1,0 +1,27 @@
+:host {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.so-luong {
+  nb-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.top {
+  display: flex;
+  .so-luong {
+    flex: 1;
+  }
+  .map {
+    flex: 1;
+    min-width: 50vh;
+    min-height: 50vh;
+    nb-card-body {
+      padding: 10px 12px !important;
+    }
+  }
+}
+

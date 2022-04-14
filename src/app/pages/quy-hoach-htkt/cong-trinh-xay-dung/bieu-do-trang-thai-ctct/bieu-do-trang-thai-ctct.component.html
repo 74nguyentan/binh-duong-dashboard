@@ -1,0 +1,14 @@
+<div class="chart-wrapper">
+  <ngx-charts-pie-chart
+   chart-zero-value
+    *ngIf="value"
+    [scheme]="schemeChart"
+    [results]="value.datas"
+    [labelFormatting]="labelFormating"
+  >
+    <ng-template #tooltipTemplate let-model="model">
+      <div>{{ model.name }}</div>
+      {{ model.value | number }}
+    </ng-template></ngx-charts-pie-chart
+  >
+</div>

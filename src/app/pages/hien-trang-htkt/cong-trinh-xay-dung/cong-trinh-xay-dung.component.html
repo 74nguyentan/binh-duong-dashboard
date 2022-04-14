@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="dashboard-content row">
+    <div class="col-sm-2 top p-0">
+      <nb-card class="so-luong">
+        <nb-card-body>
+          <ga-so-luong></ga-so-luong>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-7 top p-0">
+      <nb-card class="map mx-0">
+        <nb-card-body>
+          <ga-map></ga-map>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-3 p-0">
+      <nb-card class="dashboard-view-content" style="height: auto">
+        <nb-card-header
+          >Phân loại công trình xây dựng
+          <ga-btn-zoom
+            [input]="zoom_1"
+            (output)="zoom_1 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-phan-loai-ctxd
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_1 }"
+          ></ga-bieu-do-phan-loai-ctxd>
+          <ga-bieu-do-phan-loai-ctxd></ga-bieu-do-phan-loai-ctxd>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-6 p-0">
+      <nb-card class="dashboard-view-content mt-0">
+        <nb-card-header
+          >Trạng thái công trình cao tầng
+          <ga-btn-zoom
+            [input]="zoom_2"
+            (output)="zoom_2 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-bieu-do-trang-thai-ctct
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_2 }"
+          ></ga-bieu-do-trang-thai-ctct>
+          <ga-bieu-do-trang-thai-ctct></ga-bieu-do-trang-thai-ctct>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-6 p-0">
+      <nb-card class="dashboard-view-content mt-0 ml-0">
+        <nb-card-header
+          >Loại công trình theo đơn vị hành chính
+          <ga-btn-zoom
+            [input]="zoom_3"
+            (output)="zoom_3 = $event"
+          ></ga-btn-zoom>
+        </nb-card-header>
+        <nb-card-body>
+          <ga-loai-ct-dvhc
+            class="bieuDoFullScreen"
+            [ngClass]="{ bieuDo_block: zoom_3 }"
+          ></ga-loai-ct-dvhc>
+          <ga-loai-ct-dvhc></ga-loai-ct-dvhc>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

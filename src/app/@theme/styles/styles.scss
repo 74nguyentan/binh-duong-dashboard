@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap");
+
+// themes - our custom or/and out of the box themes
+@import "themes";
+
+// framework component themes (styles tied to theme variables)
+@import "~@nebular/theme/styles/globals";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/grid";
+
+// @import '~@swimlane/ngx-datatable/themes/material.scss';
+@import "~angular-tree-component/dist/angular-tree-component.css";
+// loading progress bar theme
+@import "./pace.theme";
+
+@import "./layout";
+@import "./overrides";
+@import "~leaflet/dist/leaflet.css";
+
+// install the framework and custom global styles
+@include nb-install() {
+  // framework global styles
+  @include nb-theme-global();
+
+  @include ngx-layout();
+  // loading progress bar
+  @include ngx-pace-theme();
+
+  @include nb-overrides();
+}
+html body {
+  overflow-x: hidden;
+}
+.form-input {
+  margin: 0.2rem;
+}
+
+.btn-action {
+  white-space: pre-wrap !important;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.dashboard-view-content {
+  flex: 220px 1 1;
+  min-height: 40vh !important;
+  justify-content: center;
+  .chart-wrapper {
+    width: 100%;
+    height: 200px;
+  }
+  .dashboard-view-bieudo__sdd {
+    .chart-wrapper {
+      width: 100%;
+      height: 300px;
+    }
+  }
+  &__map {
+    min-height: 50vh !important;
+    .chart-wrapper {
+      width: 100%;
+      height: 300px;
+    }
+    &--cdtda {
+      min-height: 58vh !important;
+      .chart-wrapper {
+        width: 100%;
+        height: 400px;
+      }
+    }
+    &--cdon {
+      min-height: 63vh !important;
+      .chart-wrapper {
+        width: 100%;
+        height: 400px;
+      }
+    }
+    &--sltvt {
+      min-height: 70vh !important;
+      .chart-wrapper {
+        width: 100%;
+        height: 400px;
+      }
+    }
+  }
+  .chart {
+    width: 100%;
+    height: 220px;
+  }
+}
+.legend-labels {
+  width: 220px !important;
+}
+
+.nb-theme-dark {
+  text {
+    fill: #fff;
+  }
+}
+.nb-theme-dark .close_btn {
+	z-index: 9999999999 !important;
+}
+
+.leaflet-container {
+  a {
+    text-decoration: none !important;
+  }
+}

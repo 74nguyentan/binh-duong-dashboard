@@ -1,0 +1,29 @@
+<nb-card>
+    <nb-card-header>
+        <div class="row">
+           <div class="col-4">
+             <button nbButton class="bao-cao" (click)="isShowDialog = true">Xuất báo cáo</button>
+           </div>
+        </div>
+    </nb-card-header>
+</nb-card>
+
+<fh-dialog [open]="isShowDialog" [width]="'400'">
+    <fh-dialog-header>
+      Xuất báo cáo
+    </fh-dialog-header>
+    <fh-dialog-body>
+      <nb-select class="mb-3" [fullWidth]="true" [(ngModel)]="mauBaoCao" placeholder="Chọn mẫu báo cáo">
+        <nb-option [value]="null">None</nb-option>
+        <nb-option [value]="xuatBaoCaoEnum.BieuMauSo7">Biểu mẫu số 7</nb-option>
+        <nb-option [value]="xuatBaoCaoEnum.BieuMauSo8">Biểu mẫu sô 8</nb-option>
+        <nb-option [value]="xuatBaoCaoEnum.NghiaTrangPL3">Nghĩa trang - Phụ lục 3</nb-option>
+      </nb-select>
+      <!-- <nb-select class="mb-3" [(ngModel)]="namBaoCao"  [fullWidth]="true" placeholder="Chọn năm">
+        <nb-option *ngFor="let year of lstYear" [value]="year">{{year}}</nb-option>
+      </nb-select> -->
+    </fh-dialog-body>
+    <fh-dialog-footer class="d-flex justify-content-between">
+          <button nbButton status="primary" (click)="xuatBaoCao()" [disabled]="status.saving" fullWidth>Xuất</button>
+    </fh-dialog-footer>
+  </fh-dialog>

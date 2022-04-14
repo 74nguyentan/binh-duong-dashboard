@@ -1,0 +1,263 @@
+@import "./themes";
+
+@mixin nb-overrides() {
+  // zoom full screen
+  .zoom_btn {
+    z-index: 9999999999 !important;
+    float: right;
+    border-radius: 8px;
+    transition: 0.7s ease;
+    padding: 0 15px;
+    border: 1px solid #fff;
+    margin: 2px;
+  }
+  .zoom_btn:hover {
+    background-color: #2b334d;
+    border: 1px solid #2b334d;
+    box-shadow: 0 0 10px 0 rgb(155, 155, 155);
+  }
+
+  .close_btn {
+    z-index: 9999999999 !important;
+    background-color: #2e3349;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 2px 15px;
+    transition: 0.7s ease;
+    color: white;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+  .nb-theme-dark .close_btn {
+    z-index: 9999999999 !important;
+  }
+  .close_btn:hover {
+    background-color: #424961;
+    border: 1px solid #424961;
+    box-shadow: 0 0 10px 0 rgb(155, 155, 155);
+  }
+  .zoom_btn_pos {
+    z-index: 9999999;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #222a43;
+  }
+  .bieuDo_block {
+    display: block !important;
+  }
+
+  .bieuDoFullScreen {
+    background-image: linear-gradient(#444a63, rgb(24, 32, 53)) !important;
+    z-index: 999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    .chart-wrapper {
+      height: 100% !important;
+      width: 100% !important;
+      display: flex;
+      align-items: center;
+      z-index: 999999 !important;
+    }
+  }
+
+  //----------- end
+
+  nb-select.size-medium button {
+    padding: 0.4375rem 2.2rem 0.4375rem 1.125rem !important;
+
+    nb-icon {
+      right: 0.41rem !important;
+    }
+  }
+
+  .scrollable-container {
+    overflow: hidden;
+  }
+
+  nb-sidebar {
+    margin-top: 8px;
+    border-radius: 0 5px 0 0;
+  }
+
+  nb-sidebar.compacted.left.fixed ~ .content {
+    margin: 0;
+  }
+
+  nb-layout-header nav {
+    padding: 4px 10px !important;
+    height: auto;
+    // box-shadow: none !important;
+    box-shadow: 0 0 1rem -0.3rem #1a1f33;
+  }
+
+  nb-user.size-medium .initials,
+  nb-select.size-medium .select-button {
+    font-size: 0.7375rem;
+  }
+
+  nb-select.size-medium button {
+    padding: 0px 5px 0px 10px !important;
+  }
+
+  nb-user.size-medium .user-picture {
+    height: auto !important;
+    width: auto !important;
+    padding: 2px 4px !important;
+  }
+
+  nb-option-list {
+    width: auto !important;
+  }
+
+  nb-user.size-medium .user-name,
+  nb-option-list.size-medium nb-option {
+    font-size: 0.7775rem;
+  }
+
+  nb-menu .menu-group:hover,
+  nb-menu .menu-item a:hover {
+    background-color: #20a1cb !important;
+    color: #fff !important;
+    box-shadow: 0px 0px 12px -2px #727272;
+    transition: 1s ease;
+    border-radius: 7px;
+  }
+  nb-menu .menu-group.active,
+  nb-menu .menu-item a.active {
+    background-color: #20a1cb !important;
+    box-shadow: 0px 0px 12px -2px #20a1cb;
+    color: #fff !important;
+    border-radius: 7px;
+  }
+
+  nb-menu .menu-item {
+    border-bottom: none !important;
+  }
+
+  nb-context-menu nb-menu {
+    top: 0 !important;
+  }
+
+  nb-layout-header.fixed ~ .layout-container {
+    padding-top: 2.25rem;
+  }
+
+  nb-card {
+    margin: 0.5rem;
+    border-radius: 5px !important;
+    background-image: linear-gradient(#242d47, rgb(24, 32, 53)) !important;
+    transition: 2s ease;
+  }
+  nb-card:hover {
+    background-image: linear-gradient(
+      rgb(24, 31, 51),
+      #2d3757,
+      rgb(24, 31, 51)
+    ) !important;
+  }
+
+  nb-tabset nb-tab {
+    padding: 0;
+  }
+
+  nb-route-tabset .tab-link {
+    font-size: 10px;
+    padding: 0.4rem 1rem;
+    text-transform: capitalize;
+  }
+
+  .chart-legend .legend-labels {
+    // width: 140px !important;
+    width: 100% !important;
+  }
+
+  .ngx-charts {
+    width: auto !important;
+  }
+
+  nb-tabset .tab-link {
+    font-size: 0.775rem !important;
+    transition: 0.7s ease;
+  }
+
+  nb-tabset .tab:hover .tab-link::before {
+    height: 0px !important;
+  }
+  nb-tabset .tab.active .tab-link::before {
+    height: 0px !important;
+  }
+
+  .tab:hover .tab-link {
+    background-color: #20a1cb !important;
+    border-radius: 7px;
+    color: #fff !important;
+    box-shadow: #20a0ca 0 0 12px -2px;
+  }
+
+  .tab.active .tab-link {
+    background-color: #20a1cb !important;
+    border-radius: 7px;
+    color: #fff !important;
+    box-shadow: #727272 0 0 12px -2px;
+  }
+
+  // menu HẠ TẦNG KỸ THUẬT
+
+  .route-tabset {
+    margin-top: 15px !important;
+    display: flex;
+    justify-content: center;
+    .tab-link {
+      font-size: 0.685rem !important;
+      transition: 0.7s ease;
+    }
+  }
+
+  nb-route-tabset .route-tab:hover .tab-link::before {
+    height: 0px !important;
+  }
+  nb-route-tabset .route-tab.active .tab-link::before {
+    height: 0px !important;
+  }
+
+  nb-route-tabset .route-tab:hover .tab-link {
+    background-color: #20a1cb !important;
+    border-radius: 7px;
+    color: #fff !important;
+    box-shadow: #20a0ca 0 0 12px -2px;
+  }
+
+  nb-route-tabset .route-tab.active .tab-link {
+    background-color: #20a1cb !important;
+    border-radius: 7px;
+    color: #fff !important;
+    box-shadow: #727272 0 0 12px -2px;
+  }
+
+  nb-card-header {
+    font-size: 13px !important;
+    padding: 3px 10px !important;
+  }
+
+  .bieuDoFullScreen2 {
+    background-image: linear-gradient(#444a63, rgb(24, 32, 53)) !important;
+    z-index: 999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .chart-wrapper {
+      height: 100% !important;
+      width: 100% !important;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

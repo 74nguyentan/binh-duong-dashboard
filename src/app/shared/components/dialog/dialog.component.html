@@ -1,0 +1,13 @@
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card [ngStyle]="styles">
+    <nb-card-header class="header">
+      <ng-content select="fh-dialog-header"></ng-content>
+    </nb-card-header>
+    <nb-card-body class="body">
+      <ng-content select="fh-dialog-body"></ng-content>
+    </nb-card-body>
+    <nb-card-footer class="footer">
+      <ng-content select="fh-dialog-footer"></ng-content>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

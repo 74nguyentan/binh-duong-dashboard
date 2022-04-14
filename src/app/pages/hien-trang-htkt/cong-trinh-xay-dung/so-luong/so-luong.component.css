@@ -1,0 +1,22 @@
+.count {
+  font-size: 70px;
+  font-weight: bold;
+  color: #1b9cfc;
+  margin: 14px 0 12px;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 14px 0 4px;
+  letter-spacing: 1px;
+}
+
+.wrapper {
+  text-align: center;
+  height: auto;
+}
+.wr-center {
+  border-top: 1.5px solid #151a30;
+  border-bottom: 1.5px solid #151a30;
+}

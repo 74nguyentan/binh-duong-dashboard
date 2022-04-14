@@ -1,0 +1,21 @@
+.du-an {
+  width: 215px;
+}
+.do-an {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+.chart {
+  height: 294px;
+  max-height: 294px !important;
+ 
+}
+.bieuDo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+

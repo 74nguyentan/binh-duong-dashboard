@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 top p-0">
+      <nb-card class="map">
+        <nb-card-body>
+          <ga-map></ga-map>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-sm-4 p-0">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 top p-0">
+            <nb-card class="so-luong ml-0 mb-0">
+              <nb-card-body><ga-so-luong></ga-so-luong></nb-card-body>
+            </nb-card>
+          </div>
+          <div class="col-sm-12 p-0">
+            <nb-card class="dashboard-view-content ml-0">
+              <nb-card-header
+                >Chiều dài dây chiếu sáng theo đơn vị hành chính (km)
+                <ga-btn-zoom
+                  [input]="zoom_2"
+                  (output)="zoom_2 = $event"
+                ></ga-btn-zoom>
+              </nb-card-header>
+              <nb-card-body>
+                <ga-so-luong-dvhc
+                  class="bieuDoFullScreen"
+                  [ngClass]="{ bieuDo_block: zoom_2 }"
+                ></ga-so-luong-dvhc>
+                <ga-so-luong-dvhc></ga-so-luong-dvhc>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

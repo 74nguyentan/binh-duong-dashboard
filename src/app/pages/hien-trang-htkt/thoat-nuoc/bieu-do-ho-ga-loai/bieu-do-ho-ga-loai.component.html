@@ -1,0 +1,18 @@
+<div class="chart-wrapper">
+  <ngx-charts-pie-chart
+   chart-zero-value
+    *ngIf="value"
+    [scheme]="schemeChart"
+    [results]="value.datas"
+    [labelFormatting]="labelFormating"
+    [labels]="true"
+    [legend]="true"
+    [explodeSlices]="true"
+    legendTitle="Chú giải"
+    >
+    <ng-template #tooltipTemplate let-model="model">
+      <div>{{ model.name}}</div>
+    </ng-template>
+    </ngx-charts-pie-chart
+  >
+</div>

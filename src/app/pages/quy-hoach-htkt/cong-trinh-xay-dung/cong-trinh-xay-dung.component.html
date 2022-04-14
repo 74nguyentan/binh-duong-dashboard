@@ -1,0 +1,46 @@
+<div class="top">
+  <nb-card class="so-luong">
+    <nb-card-header>
+      <nb-select
+        class="mt-2"
+        [fullWidth]="true"
+        [multiple]="true"
+        (selectedChange)="service.changeNamSelected($event)"
+        *ngIf="lstYear"
+        [selected]="service.namSelected$ | async"
+        placeholder="Chọn năm"
+      >
+        <nb-option *ngFor="let item of lstYear" [value]="item">{{
+          item
+        }}</nb-option>
+      </nb-select>
+    </nb-card-header>
+    <nb-card-body>
+      <ga-so-luong></ga-so-luong>
+    </nb-card-body>
+  </nb-card>
+  <nb-card class="map">
+    <nb-card-body>
+      <ga-map></ga-map>
+    </nb-card-body>
+  </nb-card>
+</div>
+<div class="dashboard-content">
+  <nb-card class="dashboard-view-content">
+    <nb-card-header>Phân loại công trình xây dựng</nb-card-header>
+    <nb-card-body>
+      <ga-bieu-do-phan-loai-ctxd></ga-bieu-do-phan-loai-ctxd>
+    </nb-card-body>
+  </nb-card>
+  <nb-card class="dashboard-view-content">
+    <nb-card-header>Trạng thái công trình cao tầng</nb-card-header>
+    <nb-card-body>
+      <ga-bieu-do-trang-thai-ctct></ga-bieu-do-trang-thai-ctct>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card class="dashboard-view-content">
+    <nb-card-header>Loại công trình theo đơn vị hành chính</nb-card-header>
+    <nb-card-body> <ga-loai-ct-dvhc></ga-loai-ct-dvhc></nb-card-body>
+  </nb-card>
+</div>

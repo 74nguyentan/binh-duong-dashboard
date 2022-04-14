@@ -1,0 +1,77 @@
+
+import { NgModule } from '@angular/core';
+import {
+  NbButtonModule,
+  NbIconModule,
+  NbToastrModule,
+  NbInputModule,
+  NbChatModule,
+  NbDatepickerModule,
+  NbDialogModule,
+  NbMenuModule,
+  NbSidebarModule,
+  NbWindowModule,
+  NbCardModule,
+  NbSelectModule,
+  NbStepperModule,
+  NbProgressBarModule,
+  NbSpinnerModule,
+  NbListModule,
+  NbTooltipModule,
+  NbCheckboxModule,
+  NbAlertModule,
+  NbPopoverModule,
+  NbTableModule,
+  NbTreeGridModule
+
+} from '@nebular/theme';
+
+@NgModule({
+  imports: [
+    NbButtonModule,
+    NbIconModule,
+    NbToastrModule,
+    NbInputModule,
+    NbMenuModule,
+    NbChatModule,
+    NbDatepickerModule,
+    NbDialogModule.forChild(),
+    NbSidebarModule,
+    NbWindowModule,
+    NbCardModule,
+    NbSelectModule,
+    NbStepperModule,
+    NbProgressBarModule,
+    NbSpinnerModule,
+    NbListModule,
+    NbTooltipModule,
+    NbCheckboxModule,
+    NbAlertModule,
+    NbPopoverModule,
+    NbTreeGridModule
+  ],
+  exports: [
+    NbButtonModule,
+    NbIconModule,
+    NbToastrModule,
+    NbInputModule,
+    NbChatModule,
+    NbDatepickerModule,
+    NbDialogModule,
+    NbMenuModule,
+    NbSidebarModule,
+    NbWindowModule,
+    NbCardModule,
+    NbSelectModule,
+    NbStepperModule,
+    NbProgressBarModule,
+    NbSpinnerModule,
+    NbListModule,
+    NbTooltipModule,
+    NbCheckboxModule,
+    NbAlertModule,
+    NbPopoverModule,
+    NbTreeGridModule
+  ],
+})
+export class SharedNebularModule { }

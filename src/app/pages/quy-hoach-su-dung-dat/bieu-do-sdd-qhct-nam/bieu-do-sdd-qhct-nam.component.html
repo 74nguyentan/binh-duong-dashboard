@@ -1,0 +1,17 @@
+<div class="chart-wrapper">
+<ngx-charts-line-chart
+  *ngIf="value"
+  [results]="value.datas"
+  [scheme]="schemeChart"
+  [xAxis]="true"
+  [yAxis]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  yAxisLabel="Diện tích (ha)"
+  xAxisLabel="Năm"
+  [timeline]="true"
+  [legend]="true"
+  [legendTitle]="'Chú giải'"
+  >
+</ngx-charts-line-chart>
+</div>
